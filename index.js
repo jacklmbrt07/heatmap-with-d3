@@ -95,11 +95,13 @@ const drawCells = () => {
         "November",
         "December",
       ];
-      tooltip.text(
-        `${item.year} ${monthNames[item.month - 1]} -  ${
-          baseTemp + item.variance
-        } (${item.variance})`
-      );
+      tooltip
+        .text(
+          `${item.year} ${monthNames[item.month - 1]} -  ${
+            baseTemp + item.variance
+          } (${item.variance})`
+        )
+        .attr("data-year", item.year);
     })
     .on("mouseout", (d) => {
       tooltip.transition().style("visibility", "hidden");
